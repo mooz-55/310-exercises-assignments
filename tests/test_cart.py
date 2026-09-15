@@ -56,4 +56,8 @@ def test_removing_an_absent_item_raises():
         cart.remove_item(999)
 
 
-# TODO: add one test of your own. What behaviour is not covered above?
+def test_negative_quantity_is_rejected():
+    cart = Cart()
+    with pytest.raises(ValueError):
+        cart.add_item(GYOZA, -1)
+#Ensures negative quantities are not accepted when adding items to the cart.
